@@ -9,42 +9,38 @@ import mentoring.lesson4.award.Award;
 public class Nominee {
 
     private String name;
-    private int nomineeAwardQuantityLimit;
-    private double nomineeAwardAmountLimit;
+    private final int nomineeAwardQuantityLimit;
+    private final double nomineeAwardAmountLimit;
+    private int nomineeCurrentQuantity;
+    private double nomineeCurrentAmount;
+    public boolean isLimitsSet;
 
     public Nominee(String name) {
         this.name = name;
+        this.nomineeAwardQuantityLimit = 0;
+        this.nomineeAwardAmountLimit = 0;
+        isLimitsSet = false;
     }
 
     public Nominee(String name, int nomineeAwardQuantityLimit, double nomineeAwardAmountLimit){
         this.name=name;
         this.nomineeAwardQuantityLimit = nomineeAwardQuantityLimit;
         this.nomineeAwardAmountLimit = nomineeAwardAmountLimit;
+        isLimitsSet = true;
     }
 
     public double getNomineeAwardAmountLimit() {
         return nomineeAwardAmountLimit;
     }
 
-    public void setNomineeAwardAmountLimit(double nomineeAwardAmountLimit) {
-        this.nomineeAwardAmountLimit = nomineeAwardAmountLimit;
-    }
-
     public int getNomineeAwardQuantityLimit() {
         return nomineeAwardQuantityLimit;
-    }
-
-    public void setNomineeAwardQuantityLimit(int nomineeAwardQuantityLimit) {
-        this.nomineeAwardQuantityLimit = nomineeAwardQuantityLimit;
     }
 
     public String getName() {
         return name;
     }
 
-    public void receiveAward(Award award){
-        System.out.println(this.getName() + " received award with value " + award.getValue());
-    }
 
 
 }

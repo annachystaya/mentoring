@@ -7,8 +7,11 @@ import mentoring.lesson4.award.Award;
 public class Nominator {
 
     private String name;
-    private int nominatorAwardQuantityLimit;
-    private double nominatorAwardAmountLimit;
+    private final int nominatorAwardQuantityLimit;
+    private final double nominatorAwardAmountLimit;
+    private int nominatorCurrentQuantity;
+    private double nominatorCurrentAmount;
+    public boolean isLimitsSet;
 
     /*
     Getters, Setters and Constructors
@@ -21,34 +24,32 @@ public class Nominator {
         return nominatorAwardAmountLimit;
     }
 
-    public void setNominatorAwardAmountLimit(double nominatorAwardAmountLimit) {
-        this.nominatorAwardAmountLimit = nominatorAwardAmountLimit;
-    }
-
     public int getNominatorAwardQuantityLimit() {
 
         return nominatorAwardQuantityLimit;
     }
 
-    public void setNominatorAwardQuantityLimit(int nominatorAwardQuantityLimit) {
-        this.nominatorAwardQuantityLimit = nominatorAwardQuantityLimit;
-    }
-
-    public Nominator(String name){
-        this.name=name;
+   public Nominator(String name){
+       this.name=name;
+       this.nominatorAwardAmountLimit=0;
+       this.nominatorAwardQuantityLimit=0;
+       isLimitsSet = false;
     }
 
     public Nominator(String name, int nominatorAwardQuantityLimit, double nominatorAwardAmountLimit ){
         this.name=name;
         this.nominatorAwardAmountLimit=nominatorAwardAmountLimit;
         this.nominatorAwardQuantityLimit=nominatorAwardQuantityLimit;
+        isLimitsSet = true;
     }
 
     /*
     method
      */
-    public void nominate(Award award,Nominee nominee){
+    public Award nominate(Nominee nominee){
+        Award award = new Award();
         System.out.println(this.getName() + " gives award with value " + award.getValue() + " to " + nominee.getName());
+        return award;
     }
 
 

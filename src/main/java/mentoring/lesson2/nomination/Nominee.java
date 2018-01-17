@@ -48,7 +48,7 @@ public class Nominee {
             award.setActualValue(award.getValue());
             population++;
             System.out.println("SOLI is NOT applied to Award. Population for nominee " + this.name + " is increased and now it = " + population);
-            this.calculateQuantityForNominee(award);
+            this.quantity = this.calculateQuantityForNominee(award);
         }
         System.out.println(this.getName() + " received award with value " + award.getActualValue());
     }
@@ -57,8 +57,10 @@ public class Nominee {
         System.out.println("calculating Quantity for nominee " + this.name + " for Award with value " + award.getActualValue());
         double param = this.calculateParamForQuantity(award);
         System.out.println("Param = " + param);
-        System.out.println("Denominator = " + this.calculateDenominatorForQuantity(param));
-        double quantity = param / this.calculateDenominatorForQuantity(param);
+
+        if (population != 0) {
+            double quantity = param / (1 + ((param - 1) / population));
+        } else System.out.println("Division by zero!");
         System.out.println("Quantity = " + quantity);
         return quantity;
     }
@@ -66,26 +68,19 @@ public class Nominee {
     private double calculateParamForQuantity(Award award) {
         Random rand = new Random();
         int z = rand.nextInt(1000);
-        double c = rand.nextDouble();
+        double param=0;
+        Double c = rand.nextDouble();
         System.out.println("Z = " + z);
         System.out.println("C = " + c);
-        if (c != 0) {
-            return (Math.pow(z, 2.0) * award.getActualValue() * (1 - award.getActualValue())) / Math.pow(c, 2.0);
+        if (Double.compare (c,0.00) != 0) {
+            double z2 = Math.pow(z, 2.0);
+            double c2 = Math.pow(c, 2.0);
+            param = (z2 * award.getActualValue() * (1 - award.getActualValue())) / c2;
+
         } else {
             System.out.println("Division by zero");
-            return 0.0;
         }
-
+        return param;
     }
-
-    private double calculateDenominatorForQuantity(double param) {
-        if (population != 0) {
-            return 1 + ((param - 1) / population);
-        } else {
-            System.out.println("devision by zero. There are no Awards without SOLI. Impossible to calculate quantity");
-            return 0.0;
-        }
-    }
-
 
 }
