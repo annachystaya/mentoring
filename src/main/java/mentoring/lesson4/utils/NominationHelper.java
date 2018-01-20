@@ -24,7 +24,10 @@ public class NominationHelper {
         if (nominee1.isLimitSet()) {
             this.createNominationWithNomineeLimits(nominator1, nominee1);
         }
-        if ((!nominator1.isLimitSet()) && (!nominee1.isLimitSet())) nominator1.nominate(nominee1);
+        if ((!nominator1.isLimitSet()) && (!nominee1.isLimitSet())) {
+            nominator1.generateNextAward();
+            nominator1.nominate(nominee1);
+        }
 
     }
 

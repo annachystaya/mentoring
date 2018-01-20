@@ -18,7 +18,6 @@ public class Nominator {
     public void generateNextAward(){
         this.award = new Award();
     }
-
     /*
     method created nomination for nominee for generated Award
      */
