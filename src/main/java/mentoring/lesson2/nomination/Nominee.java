@@ -48,39 +48,27 @@ public class Nominee {
             award.setActualValue(award.getValue());
             population++;
             System.out.println("SOLI is NOT applied to Award. Population for nominee " + this.name + " is increased and now it = " + population);
-            this.quantity = this.calculateQuantityForNominee(award);
+            this.calculateQuantityForNominee(award);
+            System.out.println("Calculated quantity for nominee = " + this.quantity);
         }
         System.out.println(this.getName() + " received award with value " + award.getActualValue());
     }
 
-    public double calculateQuantityForNominee(Award award) {
-        System.out.println("calculating Quantity for nominee " + this.name + " for Award with value " + award.getActualValue());
-        double param = this.calculateParamForQuantity(award);
-        System.out.println("Param = " + param);
+    public void calculateQuantityForNominee(Award award) {
 
-        if (population != 0) {
-            double quantity = param / (1 + ((param - 1) / population));
-        } else System.out.println("Division by zero!");
-        System.out.println("Quantity = " + quantity);
+        Random rand = new Random();
+        int z = rand.nextInt(10);
+        double tmpResult = 0;
+        Double c = rand.nextDouble() + 0.01;
+        double z2 = Math.pow(z, 2.0);
+        double c2 = Math.pow(c, 2.0);
+        double p = award.getActualValue();
+        tmpResult = (z2 * p * (1 - p)) / c2;
+        quantity = tmpResult / (1 + ((tmpResult - 1) / population));
+
+    }
+
+    public Double getQuantity() {
         return quantity;
     }
-
-    private double calculateParamForQuantity(Award award) {
-        Random rand = new Random();
-        int z = rand.nextInt(1000);
-        double param=0;
-        Double c = rand.nextDouble();
-        System.out.println("Z = " + z);
-        System.out.println("C = " + c);
-        if (Double.compare (c,0.00) != 0) {
-            double z2 = Math.pow(z, 2.0);
-            double c2 = Math.pow(c, 2.0);
-            param = (z2 * award.getActualValue() * (1 - award.getActualValue())) / c2;
-
-        } else {
-            System.out.println("Division by zero");
-        }
-        return param;
-    }
-
 }
