@@ -13,13 +13,13 @@ public class Nominator {
     private Award award;
 
     /*
-    method to generate Award for next nomination to know Award Value for the next nomination
+    method to generate Award for next person to know Award Value for the next person
      */
     public void generateNextAward(){
         this.award = new Award();
     }
     /*
-    method created nomination for nominee for generated Award
+    method created person for nominee for generated Award
      */
     public void nominate(Nominee nominee){
         System.out.println(this.getName() + " gives award with value " + award.getValue() + " to " + nominee.getName());
