@@ -15,6 +15,7 @@ public class Nominee extends Person {
 
     @Override
     public void addComments(String comment) {
-        System.out.println(comment + " As nominee I want to thank you!");
+        super.addComments(comment);
+        System.out.println("As nominee I want to thank you!");
     }
 }

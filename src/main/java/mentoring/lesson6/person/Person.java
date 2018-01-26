@@ -11,7 +11,7 @@ public class Person {
     private final int awardQuantityLimit;
     private final double awardAmountLimit;
     private boolean limitSet;
-    private List<String> privilegesList;
+    private int client;
 
     public Person (String name) {
         this.name = name;
@@ -45,5 +45,13 @@ public class Person {
 
     public void addComments(String comment){
         System.out.println(comment);
+    }
+
+    public int getClient() {
+        return client;
+    }
+
+    public void setClient(int client) {
+        this.client = client;
     }
 }
