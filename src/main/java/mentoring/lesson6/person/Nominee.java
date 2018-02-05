@@ -5,6 +5,8 @@ package mentoring.lesson6.person;
  */
 public class Nominee extends Person {
 
+
+
     public Nominee(String name) {
         super(name);
     }

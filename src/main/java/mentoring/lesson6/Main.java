@@ -14,7 +14,7 @@ public class Main {
         NominationHelper nominationHelper = new NominationHelper();
         nominationHelper.createNominations(nominator1, nominee1);
         nominator1.addComments("Nominator Comment");
-        nominee1.addComments("any comment");
+        nominee1.addComments("Nominee comment");
     }
 }
 
