@@ -6,8 +6,8 @@ public class Nominator extends Person {
     /**
      * method created nomination for nominee for generated Award
      *
-     * @param nominee
-     * @param award
+     * @param nominee - nominee is person who receives the Award
+     * @param award - Award that nominator gives to nominee
      */
     public void nominate(Nominee nominee, Award award){
 

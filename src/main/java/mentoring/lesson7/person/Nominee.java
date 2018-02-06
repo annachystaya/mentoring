@@ -23,6 +23,10 @@ public class Nominee extends Person {
         System.out.println("As nominee I want to thank you!");
     }
 
+    /**
+     * method to add award for recipient to recipient's award list
+     * @param award - created award
+     */
     public void addAward(Award award){
         awardsList.add(award);
     }

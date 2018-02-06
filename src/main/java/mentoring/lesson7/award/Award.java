@@ -2,9 +2,6 @@ package mentoring.lesson7.award;
 
 import java.util.Random;
 
-/**
- * Created by Anna_Chystaya on 04-Jan-18.
- */
 public class Award {
 
     private final int value;
@@ -22,6 +19,5 @@ public class Award {
     public int getValue() {
         return value;
     }
-
 
 }

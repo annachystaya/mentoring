@@ -4,9 +4,6 @@ import mentoring.lesson7.person.Nominator;
 import mentoring.lesson7.person.Nominee;
 import mentoring.lesson7.utils.NominationHelper;
 
-/**
- * Created by Anna_Chystaya on 04-Jan-18.
- */
 public class Main {
     public static void main(String[] arg) {
         Nominator nominator1 = new Nominator("Norma Nominator", 7, 100);

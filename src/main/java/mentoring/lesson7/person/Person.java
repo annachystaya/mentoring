@@ -25,6 +25,14 @@ public abstract class Person implements OperationsWithLimits {
         } else return false;
     }
 
+    /**
+     * Person can add comment
+     * @param comment - text to be added as a comment
+     */
+    public void addComments(String comment) {
+        System.out.println(comment);
+    }
+
     public Person(String name) {
         this.name = name;
         this.awardQuantityLimit = 0;
@@ -53,14 +61,6 @@ public abstract class Person implements OperationsWithLimits {
 
     public boolean isLimitSet() {
         return limitSet;
-    }
-
-    /**
-     * Person can add comment
-     * @param comment
-     */
-    public void addComments(String comment) {
-        System.out.println(comment);
     }
 
     public int getClient() {
