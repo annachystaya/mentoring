@@ -20,4 +20,10 @@ public class Award {
         return value;
     }
 
+    @Override
+    public String toString() {
+        return "Award{" +
+                "value=" + value +
+                '}';
+    }
 }

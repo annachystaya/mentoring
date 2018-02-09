@@ -3,16 +3,6 @@ import mentoring.lesson7.award.Award;
 
 public class Nominator extends Person {
 
-    /**
-     * method created nomination for nominee for generated Award
-     *
-     * @param nominee - nominee is person who receives the Award
-     * @param award - Award that nominator gives to nominee
-     */
-    public void nominate(Nominee nominee, Award award){
-
-    }
-
     public Nominator(String name){
        super(name);
     }
@@ -21,5 +11,8 @@ public class Nominator extends Person {
         super(name, awardQuantityLimit, awardAmountLimit);
     }
 
-
+    @Override
+    public void addComments(String comment) {
+        System.out.println("as Nominator I want to say: " + comment);
+    }
 }

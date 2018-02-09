@@ -19,12 +19,12 @@ public class NominationHelper {
      * @param nominator1 - person who gives award
      * @param nominee1   - person who receives award
      */
-    public void createNominations(Nominator nominator1, Nominee nominee1) {
+    public void createNominations(Person nominator1, Person nominee1) {
         if (nominator1.isLimitSet() || (nominee1.isLimitSet())) {
             this.createNominationWithLimits(nominator1, nominee1);
         } else {
             Award award = AwardService.createNextAward();
-            nominator1.nominate(nominee1, award);
+            this.nominate(nominator1, nominee1, award);
         }
 
     }
@@ -34,7 +34,7 @@ public class NominationHelper {
      * @param nominator1 - person who gives award
      * @param nominee1 - person who receives award
      */
-    private void createNominationWithLimits(Nominator nominator1, Nominee nominee1) {
+    private void createNominationWithLimits(Person nominator1, Person nominee1) {
         currentAmount = 0;
         currentQuantity = 0;
         Award award = AwardService.createNextAward();
@@ -57,8 +57,8 @@ public class NominationHelper {
      * @param nominee1 - person who receive award
      * @param award - award
      */
-    private static void nominate(Nominator nominator1, Nominee nominee1, Award award) {
-        nominee1.addAward(award);
+    private static void nominate(Person nominator1, Person nominee1, Award award) {
+        AwardService.addAwardForNominee(nominee1, award);
         System.out.println(nominator1.getName() + " gives award with value " + award.getValue() + " to " + nominee1.getName());
     }
 
