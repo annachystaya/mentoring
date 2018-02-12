@@ -1,5 +1,6 @@
 package mentoring.lesson7.award;
 
+
 import java.util.Random;
 
 public class Award {
